@@ -1,9 +1,10 @@
+{% load bulma_tags %}
 <h1>Register</h1>
 
 <form action="#" method="post">
   {% csrf_token %}
-  {{ form.as_p }}
+  {{ form|bulma}}
   <button type="submit" id="submit">Register</button>
   <p>Having an acccount?</p>
-  <a href="{% url 'login' %}">Login</a>
+  <a href="{% url 'accounts:login_user' %}">Login</a>
 </form>   
