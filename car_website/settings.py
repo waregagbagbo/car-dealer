@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'car_fleet',
+    'bulma',
 ]
 
 MIDDLEWARE = [
@@ -118,6 +119,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = '/media/'
+
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -130,3 +135,4 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # The code below modifies the register of our custom authentication backend
 AUTHENTICATION_BACKENDS = ['accounts.backends.EmailBackend']
+
