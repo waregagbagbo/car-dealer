@@ -6,7 +6,7 @@ from accounts.models import CustomUser
 
 class Car(models.Model):
     custom_user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    car_image = models.ImageField(upload_to ='motors/% Y/% m/% d/')
+    car_image = models.ImageField(upload_to ='motors', default='race.jpg')
     car_type = models.CharField(max_length=255)
     make = models.CharField(max_length=255)
     model_type = models.CharField(max_length= 255)
@@ -24,7 +24,7 @@ class Car(models.Model):
 
     
     
-class Extras(models.Model):
+class Extra(models.Model):
     car = models.ManyToManyField(Car)
     extra_1 = models.CharField(max_length= 30)
     extra_2 = models.CharField(max_length= 30)
