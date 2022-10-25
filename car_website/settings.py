@@ -118,8 +118,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+
+# suitable for deployment hence does nothing in development
 STATIC_URL = 'static/'
-STATIC_ROOT = '/media/'
+STATIC_ROOT = '/static/'
+
+
+# for uploading uploaded files
+MEDIA_URL = 'media/'
+MEDIA_ROOT ='/media/'
 
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
