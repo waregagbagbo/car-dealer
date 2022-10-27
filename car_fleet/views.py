@@ -1,5 +1,9 @@
 from django.shortcuts import render
+from .models import *
+from django.views.generic import ListView,CreateView
+
 
 # Create your views here.
-def index(request):
-    return render(request,'page/index.html')
+class IndexView(ListView):
+    model = Car
+    template_name = 'page/index.html'
