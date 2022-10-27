@@ -9,12 +9,10 @@ CAR_CATEGORY =[
     
 ]
 
-
 class Car(models.Model):
     custom_user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     car_image = models.ImageField(upload_to ='motors', default='race.jpg')
-    #car_type = models.ForeignKey(Category, on_delete=models.CASCADE)
-    car_type = models.CharField(max_length=255)
+    car_type = models.CharField(max_length=255, choices=CAR_CATEGORY, default='Used_car')
     make = models.CharField(max_length=255)
     model_type = models.CharField(max_length= 255)
     year = models.IntegerField()
@@ -62,9 +60,7 @@ class Contact(models.Model):
     def __str__(self):
         return self.dealer_name
     
-class Category(models.Model):
-    category = models.CharField(max_length=30, choices=CAR_CATEGORY)
-  
+
     
     
     

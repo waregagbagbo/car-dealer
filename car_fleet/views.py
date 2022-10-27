@@ -7,3 +7,4 @@ from django.views.generic import ListView,CreateView
 class IndexView(ListView):
     model = Car
     template_name = 'page/index.html'
+    
