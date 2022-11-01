@@ -1,12 +1,14 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
 from django.views.generic import ListView
+from django.core.paginator import Paginator
 
 
 # Create your views here.
 class CarListView(ListView):
     model = Car
-    template_name = 'page/index.html' 
+    template_name = 'page/index.html'
+    paginate_by = 6 
      
        
     def get_context_data(self, **kwargs):

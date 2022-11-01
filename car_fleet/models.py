@@ -9,7 +9,6 @@ CAR_CATEGORY =[
     
 ]
 
-
 class Car(models.Model):
     custom_user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     car_image = models.ImageField(upload_to ='motors', default='race.jpg')

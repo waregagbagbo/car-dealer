@@ -34,7 +34,41 @@
       <p class="level-item"><a class="button is-success">New</a></p>
     </div>
   </nav>
-  <div class="columns">
+</div>
+  <section>
+    <div class="container">
+      <div class="columns p-2 mx-2 mr-2">
+        <div class="column is-3">is-one-quarter</div>
+        <div class="column is-9">
+          {% for listings in listing %}
+          <div class="columns">
+            <div class="column">
+              <img src="{{listings.car_image.url }}" width="200px" height="150px"  style="border-radius:10px";/>           
+            </div>
+            <div class="column">
+              <div class="media-content">
+                <p class="title is-5">{{listings.make}}</p>
+                
+              </div>           
+            </div>
+            <div class="column">
+              <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>             
+            </div>
+            <div class="column">
+              <a href="">
+                <ion-icon name="add-circle-sharp" class="icon is-medium"></ion-icon> 
+              </a>                   
+            </div>
+          </div>              
+          {% endfor%}
+        </div>
+               
+      </div>
+
+    </div>
+  </section>
+
+  <!--<div class="columns">
     <div class="column is-one-quarter">
         <div class="tile is-parent">
             <article class="tile is-child notification is-info">
@@ -44,8 +78,7 @@
             </article>
           </div>
     </div>
-
-    <div class="column is half">
+    <div class="column is-is-two-fifths">
       {% for listings in listing%}
       <div class="card">
         <div class="card-image">         
@@ -53,30 +86,25 @@
         <div class="card-content">
           <div class="media">
             <div class="media-left">
-             {{listings.car_image}}
+              <img src="{{listings.car_image.url }}" width="200px" height="150px"  style="border-radius:10px";/>
             </div>
-            <div class="media-content">
-              <p class="title is-4">{{listings.make}}</p>
-              <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>
+            <div class='column is-one-fifth'>
+              <div class="media-content">
+                <p class="title is-4">{{listings.make}}</p>
+                <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>
+              </div>
             </div>
-          </div>
-      
-          <div class="content">
-           
-             <a>@bulmaio</a>.
-            <a href="#">#css</a> <a href="#">#responsive</a>
-            <br>
-            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-          </div>
+            
+          </div>    
         </div>
-      </div>
-      
-      
+      </div>        
       {% endfor %}
-    </div>         
+    </div> 
+  </div>  
+       
   
    
-</div>
+</div>-->
 
 
 {% endblock %}<!-- Main container -->
