@@ -8,7 +8,7 @@ from django.core.paginator import Paginator
 class CarListView(ListView):
     model = Car
     template_name = 'page/index.html'
-    paginate_by = 6 
+    paginate_by = 4 
      
        
     def get_context_data(self, **kwargs):
