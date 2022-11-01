@@ -9,11 +9,13 @@ CAR_CATEGORY =[
     
 ]
 
+
 class Car(models.Model):
     custom_user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     car_image = models.ImageField(upload_to ='motors', default='race.jpg')
     car_type = models.CharField(max_length=255, choices=CAR_CATEGORY, default='Used_car')
     make = models.CharField(max_length=255)
+    price = models.CharField(max_length=50, default=300000)
     model_type = models.CharField(max_length= 255)
     year = models.IntegerField()
     fuel = models.CharField(max_length=255)
@@ -23,6 +25,11 @@ class Car(models.Model):
     number_of_seats = models.IntegerField()
     doors = models.IntegerField()
     color = models.CharField(max_length=255)
+    
+    
+    class Meta:
+        ordering = ["-make"]
+        
     
     def __str__(self):
         return self.car_type  
