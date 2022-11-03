@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
-from django.views.generic import ListView
+from django.views.generic import ListView,DetailView
 from django.core.paginator import Paginator
 
 

@@ -41,7 +41,7 @@ class Car(models.Model):
     car_image = models.ImageField(upload_to ='motors', default='race.jpg')
     car_type = models.CharField(max_length=255, choices=CAR_CATEGORY, default='Used_car')
     make = models.CharField(max_length=255, choices=CAR_MAKES)
-    price = models.CharField(max_length=50, default=300000)
+    price = models.DecimalField(max_digits=10,decimal_places=2)
     model_type = models.CharField(max_length= 255, choices=CAR_MANUFACTURER)
     year = models.IntegerField()
     fuel = models.CharField(max_length=255)
@@ -54,11 +54,10 @@ class Car(models.Model):
     
     
     class Meta:
-        ordering = ["-make"]
-        
+        ordering = ["-make"]        
     
     def __str__(self):
-        return self.car_type  
+        return str(self.car_type) + ":$" + str(self.price)  
 
     
     
