@@ -9,13 +9,40 @@ CAR_CATEGORY =[
     
 ]
 
+CAR_MAKES = [
+    ('Aston','Aston Martin'),
+    ('Audi','Audi'),
+    ('Gmc','Gmc'),
+    ('Bentley','Bentley'),
+    ('Bmw','Bmw'),
+    ('Chevrolet','Chevrolet'),
+    ('Cardilac','Cardilac'),
+    ('Citroen','Citroen'),
+    ('Hyundai','Hyundai'),
+    ('Jaguar','Jaguar'),
+    ('Lexus','Lexus'),
+    ('Mercedes','Mercedes'),
+    ('Nissan','Nissan'),
+]
+
+
+CAR_MANUFACTURER =[
+    ('Envoy','Envoy'),
+    ('Jimmy','Jimmy'),
+    ('Saturn','Saturn'),
+    ('Savanna','Savanna'),
+    ('Sierra','Siera'),
+    ('Yukom','Sonoma'),
+]
+
+
 class Car(models.Model):
     custom_user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     car_image = models.ImageField(upload_to ='motors', default='race.jpg')
     car_type = models.CharField(max_length=255, choices=CAR_CATEGORY, default='Used_car')
-    make = models.CharField(max_length=255)
+    make = models.CharField(max_length=255, choices=CAR_MAKES)
     price = models.CharField(max_length=50, default=300000)
-    model_type = models.CharField(max_length= 255)
+    model_type = models.CharField(max_length= 255, choices=CAR_MANUFACTURER)
     year = models.IntegerField()
     fuel = models.CharField(max_length=255)
     engine_mode_size = models.CharField(max_length=255)

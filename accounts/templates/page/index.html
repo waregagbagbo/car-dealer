@@ -37,11 +37,14 @@
 </div>
   <section>
     <div class="container">
-      <div class="columns p-2 mx-2 mr-2">
-        <div class="column is-3">is-one-quarter</div>
-        <div class="column is-9">
+      <div class="columns p-2 mx-2">
+        <div class="column">
+          {% include 'partials/sidebar.html' %}
+        </div>
+
+        <div class="column is-10">
           {% for listings in listing %}
-          <div class="columns">
+          <div class="columns is-bordered">
             <div class="column">
               <img src="{{listings.car_image.url }}" width="200px" height="150px"  style="border-radius:10px";/>           
             </div>
@@ -67,44 +70,4 @@
 
     </div>
   </section>
-
-  <!--<div class="columns">
-    <div class="column is-one-quarter">
-        <div class="tile is-parent">
-            <article class="tile is-child notification is-info">
-              <p class="title">Middle tile</p>
-              <p class="subtitle">With an image</p>
-              
-            </article>
-          </div>
-    </div>
-    <div class="column is-is-two-fifths">
-      {% for listings in listing%}
-      <div class="card">
-        <div class="card-image">         
-        </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              <img src="{{listings.car_image.url }}" width="200px" height="150px"  style="border-radius:10px";/>
-            </div>
-            <div class='column is-one-fifth'>
-              <div class="media-content">
-                <p class="title is-4">{{listings.make}}</p>
-                <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>
-              </div>
-            </div>
-            
-          </div>    
-        </div>
-      </div>        
-      {% endfor %}
-    </div> 
-  </div>  
-       
-  
-   
-</div>-->
-
-
 {% endblock %}<!-- Main container -->
