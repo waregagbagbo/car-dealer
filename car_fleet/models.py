@@ -38,6 +38,7 @@ CAR_MANUFACTURER =[
 
 class Car(models.Model):
     custom_user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    description = models.ManyToManyField("self")
     car_image = models.ImageField(upload_to ='motors', default='race.jpg')
     car_type = models.CharField(max_length=255, choices=CAR_CATEGORY, default='Used_car')
     make = models.CharField(max_length=255, choices=CAR_MAKES)
@@ -74,7 +75,6 @@ class Extra(models.Model):
     
 
 class VehicleDescription(models.Model):
-    car = models.ManyToManyField(Car)
     desc_1 = models.CharField(max_length=255)
     desc_2 = models.CharField(max_length=255)
     desc_3 = models.CharField(max_length=255)
