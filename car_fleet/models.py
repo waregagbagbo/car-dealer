@@ -3,6 +3,7 @@ from accounts.models import CustomUser
 
 
 
+
 CAR_CATEGORY =[
     ('used_car', 'Used_Car'),
     ('new_car','New_Car'),      
@@ -38,7 +39,6 @@ CAR_MANUFACTURER =[
 
 class Car(models.Model):
     custom_user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    description = models.ManyToManyField("self")
     car_image = models.ImageField(upload_to ='motors', default='race.jpg')
     car_type = models.CharField(max_length=255, choices=CAR_CATEGORY, default='Used_car')
     make = models.CharField(max_length=255, choices=CAR_MAKES)
@@ -51,7 +51,7 @@ class Car(models.Model):
     gearbox = models.CharField(max_length=255)
     number_of_seats = models.IntegerField()
     doors = models.IntegerField()
-    color = models.CharField(max_length=255)
+    color = models.CharField(max_length=255)  
     
     
     class Meta:
@@ -63,7 +63,6 @@ class Car(models.Model):
     
     
 class Extra(models.Model):
-    car = models.ManyToManyField(Car)
     extra_1 = models.CharField(max_length= 30)
     extra_2 = models.CharField(max_length= 30)
     extra_3 = models.CharField(max_length= 30)
