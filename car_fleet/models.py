@@ -56,7 +56,7 @@ class Description(models.Model):
     desc_5 = models.CharField(max_length=255)    
     
     def __str__(self):
-        return self.desc_1  
+        return '%s,%s,%s,%s,%s'% (self.desc_1,self.desc_2,self.desc_3,self.desc_4,self.desc_5) 
     
       
 

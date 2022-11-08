@@ -55,7 +55,11 @@
               </div>           
             </div>
             <div class="column">
-              <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>             
+              <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>
+              {% for p in listings.description.all%}
+              <p>{{p}}</p>
+              {% endfor%}
+             
             </div>
             <div class="column">
               <a href="{% url 'car_fleet:car' listings.id %}">
