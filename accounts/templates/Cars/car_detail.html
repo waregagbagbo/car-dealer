@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% block content %}
+<section class="section p5"> 
+    <h1 class="title">{{listings.make}}</h1>
+    <div class="columns is-mobile">
+        <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
+          <img src ="{{object.car_image.url}}" />
+          
+        </div>
+        <div class="column">2</div>
+        <div class="column">3</div>
+        <div class="column">4</div>
+        <div class="column">5</div>
+      </div>
+    
+  </section>
+{% endblock content %}

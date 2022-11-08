@@ -44,7 +44,7 @@
 
         <div class="column is-10">
           {% for listings in listing %}
-          <div class="columns is-bordered">
+          <div class="columns is-bordered is-mobile">
             <div class="column">
               <img src="{{listings.car_image.url }}" width="200px" height="150px"  style="border-radius:10px";/>           
             </div>
@@ -58,7 +58,7 @@
               <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>             
             </div>
             <div class="column">
-              <a href="{% url 'car_fleet:vehicle' listings.id %}">
+              <a href="{% url 'car_fleet:car' listings.id %}">
                 <ion-icon name="add-circle-sharp" class="icon is-medium"></ion-icon> 
               </a>                   
             </div>

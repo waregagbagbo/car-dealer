@@ -8,7 +8,7 @@ from django.core.paginator import Paginator
 # Create your views here.
 class CarListView(ListView):
     model = Car
-    template_name = 'page/index.html'
+    template_name = 'Cars/index.html'
     paginate_by = 4 
      
        
@@ -21,5 +21,8 @@ class CarListView(ListView):
 
 class CarDetailAccessView(DetailView, LoginRequiredMixin):
     model = Car
-    template_name ='page/car_detail.html'
+    template_name ='Cars/car_detail.html'
+   
+    
+    
 
