@@ -1,16 +1,31 @@
 {% extends 'main.html' %}
+{% load humanize%}
 {% block content %}
 <section class="section p5"> 
-    <h1 class="title">{{listings.make}}</h1>
+<h1 class="title">{{object.make}}<br/>{{object.price | intcomma}}</h1>
     <div class="columns is-mobile">
         <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
           <img src ="{{object.car_image.url}}" />
           
         </div>
-        <div class="column">2</div>
-        <div class="column">3</div>
-        <div class="column">4</div>
-        <div class="column">5</div>
+        <div class="column"></div>
+        <div class="column is-half">
+          <h3>Car Type: {{object.car_type}}<br/></h3>
+          <h3>Make : {{object.make}}<br/></h3>
+          <h3>Price {{object.price}}<br/><h3>
+          <h3>Model : {{object.model_type}}<br/></h3>
+          <h3>Registration Year : {{object.year}}<br/></h3>
+          <h3>Fuel type: {{object.fuel}}<br/></h3>
+          <h3>Engine Size: {{object.engine_mode}}<br/></h3>
+          <h3>Power mode: {{object.power}}<br/></h3>
+          <h3>Gearbox: {{object.gearbox}}<br/></h3>
+          <h3>Number of Seats: {{object.number_of_seats}}<br/></h3>
+          <h3>Doors: {{object.doors}}<br/></h3>
+          <h3>Color : {{object.color}}<br/></h3>          
+          </div>         
+
+        </div>
+      
       </div>
     
   </section>
