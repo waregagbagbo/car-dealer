@@ -41,7 +41,6 @@
         <div class="column">
           {% include 'partials/sidebar.html' %}
         </div>
-
         <div class="column is-10">
           {% for listings in listing %}
           <div class="columns is-bordered is-mobile">
@@ -50,24 +49,20 @@
             </div>
             <div class="column">
               <div class="media-content">
-                <p class="title is-5">{{listings.make}}</p>
-                
+                <p class="title is-5">{{listings.make}}</p>                
               </div>           
             </div>
             <div class="column">
               <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>
-              {% for p in listings.description.all%}
-              <p>{{p}}</p>
-              {% endfor%}
-             
+                  {% for p in listings.description.all%}{{p}}{% endfor %}                            
             </div>
             <div class="column">
-              <a href="{% url 'car_fleet:car' listings.id %}">
+              <a href="{% url 'car_fleet:car' listings.slug %}">
                 <ion-icon name="add-circle-sharp" class="icon is-medium"></ion-icon> 
               </a>                   
             </div>
           </div>              
-          {% endfor%}
+          {% endfor %}
           {% include 'partials/pagination.html'%}
         </div>               
       </div>   

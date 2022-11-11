@@ -44,7 +44,16 @@ class CarExtra(models.Model):
     extra_4 = models.CharField(max_length= 30)    
     
     def __str__(self):
-        return self.extra_1       
+        return self.extra_1 
+    
+
+class Contact(models.Model):
+    dealer_name = models.CharField(max_length=30)
+    phone = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.dealer_name
+          
     
     
 
@@ -60,11 +69,20 @@ class Description(models.Model):
     
       
 
+class Category(models.Model):
+    category = models.CharField(max_length=255, choices=CAR_CATEGORY, default='used_car')
+    
+    def __str__(self):
+        return self.category   
+    
+
+
+
 
 class Car(models.Model):
     custom_user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     car_image = models.ImageField(upload_to ='motors', default='race.jpg')
-    car_type = models.CharField(max_length=255, choices=CAR_CATEGORY, default='Used_car')
+    car_category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE)
     make = models.CharField(max_length=255, choices=CAR_MAKES)
     price = models.DecimalField(max_digits=10,decimal_places=2)
     model_type = models.CharField(max_length= 255, choices=CAR_MANUFACTURER)
@@ -78,6 +96,7 @@ class Car(models.Model):
     color = models.CharField(max_length=255)
     description = models.ManyToManyField(Description)
     extra =  models.ManyToManyField(CarExtra)
+    slug = models.SlugField(max_length=30, null=True)
     
     
     
@@ -85,19 +104,13 @@ class Car(models.Model):
         ordering = ["-make"]        
     
     def __str__(self):
-        return str(self.car_type) + ":$" + str(self.price)  
+        return str(self.car_category) + ":$" + str(self.price)  
 
     
 
     
     
-class Contact(models.Model):
-    dealer_name = models.CharField(max_length=30)
-    phone = models.CharField(max_length=255)
-    
-    def __str__(self):
-        return self.dealer_name
-    
+
 
     
     

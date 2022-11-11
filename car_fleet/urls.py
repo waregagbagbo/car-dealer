@@ -7,5 +7,5 @@ app_name = 'car_fleet'
 
 urlpatterns = [
     path('',CarListView.as_view(), name='home'),
-    path('car/<int:pk>/',CarDetailAccessView.as_view(), name='car'),
+    path('<slug:slug>/',CarDetailAccessView.as_view(), name='car'),
 ]

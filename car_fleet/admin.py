@@ -3,7 +3,7 @@ from .models import *
 # Register your models here.
 
 class CarAdmin(admin.ModelAdmin):
-    list_display = ('car_type','car_image','make','price','year','fuel','power','color')
+    list_display = ('car_category','car_image','make','price','year','fuel','power','color')
     
 class CarExtraAdmin(admin.ModelAdmin):
     list_display = ('extra_1','extra_2','extra_3','extra_4')
