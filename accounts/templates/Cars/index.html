@@ -1,5 +1,6 @@
 {% extends 'main.html'%}
 {% load humanize %}
+
 {% block content %}
 
 <div class="container is-fullhd">    
@@ -53,8 +54,7 @@
               </div>           
             </div>
             <div class="column">
-              <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>
-                  {% for p in listings.description.all%}{{p}}{% endfor %}                            
+              <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>                                          
             </div>
             <div class="column">
               <a href="{% url 'car_fleet:car' listings.slug %}">
@@ -63,10 +63,12 @@
             </div>
           </div>              
           {% endfor %}
+
           {% include 'partials/pagination.html'%}
         </div>               
       </div>   
 
     </div>
   </section>
+
 {% endblock %}<!-- Main container -->

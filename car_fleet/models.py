@@ -1,5 +1,6 @@
 from django.db import models
 from accounts.models import CustomUser
+from django.urls import reverse
 
 
 
@@ -96,16 +97,20 @@ class Car(models.Model):
     color = models.CharField(max_length=255)
     description = models.ManyToManyField(Description)
     extra =  models.ManyToManyField(CarExtra)
-    slug = models.SlugField(max_length=30, null=True)
-    
+    slug = models.SlugField(null=True)    
     
     
     class Meta:
         ordering = ["-make"]        
     
     def __str__(self):
-        return str(self.car_category) + ":$" + str(self.price)  
-
+        return str(self.car_category) + ":$" + str(self.price) + "$" + str(self.make) 
+    
+    # fetches relative path to the actual object in detailview  
+    #def get_absolute_url(self):
+      #  return reverse("car", kwargs={'slug': self.slug})
+    
+    
     
 
     
