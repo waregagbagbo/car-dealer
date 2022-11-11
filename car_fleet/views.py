@@ -27,10 +27,11 @@ class CarDetailAccessView(DetailView, LoginRequiredMixin):
 
 class CategoryList(ListView,LoginRequiredMixin):
     model = Category
-    template_name = 'Cars/category.html'
+    template_name = 'category/category_list.html'
    
     
 class CategoryDetail(DetailView,LoginRequiredMixin):
     model = Category
+    template_name = 'category/category_detail.html'
     pass
 
