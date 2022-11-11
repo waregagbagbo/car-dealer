@@ -68,13 +68,19 @@ class Description(models.Model):
     def __str__(self):
         return '%s,%s,%s,%s,%s'% (self.desc_1,self.desc_2,self.desc_3,self.desc_4,self.desc_5) 
     
-      
+ 
+
 
 class Category(models.Model):
     category = models.CharField(max_length=255, choices=CAR_CATEGORY, default='used_car')
+    slug = models.SlugField(null=True)
     
     def __str__(self):
-        return self.category   
+        return self.category  
+    
+    def get_absolute_url(self):
+        return reverse("category_detail", kwargs={"slug": self.slug})
+    
     
 
 

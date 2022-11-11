@@ -57,7 +57,7 @@
               <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>                                          
             </div>
             <div class="column">
-              <a href="{% url 'car_fleet:car' listings.slug %}">
+              <a href="{% url 'car_fleet:car' listings.id %}">
                 <ion-icon name="add-circle-sharp" class="icon is-medium"></ion-icon> 
               </a>                   
             </div>
