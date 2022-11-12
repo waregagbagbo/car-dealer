@@ -1,7 +1,7 @@
 from django.db import models
 from accounts.models import CustomUser
 from django.urls import reverse
-
+import django_filters
 
 
 
@@ -86,16 +86,10 @@ class Category(models.Model):
         managed = True
         verbose_name = 'Category'
         verbose_name_plural = 'categories'
-    
-
         
-        
+       
     
     
-
-
-
-
 class Car(models.Model):
     custom_user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     car_image = models.ImageField(upload_to ='motors', default='race.jpg')
@@ -125,6 +119,13 @@ class Car(models.Model):
     # fetches relative path to the actual object in detailview  
     #def get_absolute_url(self):
       #  return reverse("car", kwargs={'slug': self.slug})
+
+class ProductFilter(django_filters.FilterSet):
+    name = django_filters.CharFilter(lookup_expr='iexact')
+
+    class Meta:
+        model = Car
+        fields = ['category','make','price', 'release_year']
     
     
     
