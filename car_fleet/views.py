@@ -25,13 +25,28 @@ class CarDetailAccessView(DetailView, LoginRequiredMixin):
     success_url = 'home'
 
 
+
 class CategoryList(ListView,LoginRequiredMixin):
     model = Category
     template_name = 'category/category_list.html'
+    context_object_name = 'categories'
+    
+    def get_queryset(self):
+        return super().get_queryset()
+    
    
     
 class CategoryDetail(DetailView,LoginRequiredMixin):
     model = Category
-    template_name = 'category/category_detail.html'
-    pass
+    template_name = 'category/category_detail'
+    context_object_name = 'category'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = self.model.objects.all()
+        context['cars'] = Car.objects.all()
+        return context
+    
+    
+
 

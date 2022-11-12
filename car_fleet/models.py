@@ -72,14 +72,24 @@ class Description(models.Model):
 
 
 class Category(models.Model):
-    category = models.CharField(max_length=255, choices=CAR_CATEGORY, default='used_car')
-    slug = models.SlugField(null=True)
+    name = models.CharField(max_length=255, choices=CAR_CATEGORY, default='used_car')
+    slug = models.SlugField(null=True, unique= True)
     
     def __str__(self):
-        return self.category  
+        return self.name  
     
     def get_absolute_url(self):
         return reverse("category_detail", kwargs={"slug": self.slug})
+    
+    class Meta:
+        db_table = ''
+        managed = True
+        verbose_name = 'Category'
+        verbose_name_plural = 'categories'
+    
+
+        
+        
     
     
 
@@ -93,7 +103,7 @@ class Car(models.Model):
     make = models.CharField(max_length=255, choices=CAR_MAKES)
     price = models.DecimalField(max_digits=10,decimal_places=2)
     model_type = models.CharField(max_length= 255, choices=CAR_MANUFACTURER)
-    year = models.IntegerField()
+    release_year = models.DateField(null=True)
     fuel = models.CharField(max_length=255)
     engine_mode_size = models.CharField(max_length=255)
     power = models.CharField(max_length=255)
