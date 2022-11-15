@@ -1,7 +1,6 @@
 from django.db import models
 from accounts.models import CustomUser
 from django.urls import reverse
-import django_filters
 
 
 
@@ -120,12 +119,6 @@ class Car(models.Model):
     #def get_absolute_url(self):
       #  return reverse("car", kwargs={'slug': self.slug})
 
-class ProductFilter(django_filters.FilterSet):
-    name = django_filters.CharFilter(lookup_expr='iexact')
-
-    class Meta:
-        model = Car
-        fields = ['category','make','price', 'release_year']
     
     
     

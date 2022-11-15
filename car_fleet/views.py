@@ -3,7 +3,7 @@ from .models import *
 from django.views.generic import ListView,DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
-
+from .filters import CarListingFilter
 
 # Create your views here.
 class CarListView(ListView):
@@ -23,30 +23,11 @@ class CarDetailAccessView(DetailView, LoginRequiredMixin):
     model = Car
     template_name ='Cars/car_detail.html'
     success_url = 'home'
-
-
-
-class CategoryList(ListView,LoginRequiredMixin):
-    model = Category
-    template_name = 'category/category_list.html'
-    context_object_name = 'categories'
-    
-    def get_queryset(self):
-        return super().get_queryset()
-    
    
-    
-class CategoryDetail(DetailView,LoginRequiredMixin):
-    model = Category
-    template_name = 'category/category_detail'
-    context_object_name = 'category'
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['categories'] = self.model.objects.all()
-        context['cars'] = Car.objects.all()
-        return context
-    
-    
 
 
+'''def CarViews(request):
+    f = CarListingFilter(request.GET, queryset=Car.objects.all())
+    return render(request, 'category/category_list.html', {'filter':f})'''
+    
+    
