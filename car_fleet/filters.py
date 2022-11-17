@@ -4,4 +4,4 @@ import django_filters
 class CarFilter(django_filters.FilterSet):
     class Meta:
         model = Car
-        fields = ['fuel', 'doors', 'color', ]
+        fields = ['car_category', 'make', 'price', 'release_year','model_type']
