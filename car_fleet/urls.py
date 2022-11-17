@@ -10,9 +10,8 @@ from car_fleet.models import Car
 #app_name = 'car_fleet'
 
 urlpatterns = [
-    path('',CarListView.as_view(), name='home'),
+    path('',views.CarView, name='listings'),
     path('car/<int:pk>',CarDetailAccessView.as_view(), name='car'),
-    #path('search', views.CarView, name='search'),
-    path("search", FilterView.as_view(filterset_class=CarFilter, template_name='search/search_list.html'), name="search"),   
+   # path("index", FilterView.as_view(filterset_class=CarFilter, template_name='index.html'), name="home"),   
   
 ]

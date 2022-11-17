@@ -1,0 +1,22 @@
+{% extends 'main.html'%}
+{% load humanize %}
+
+{% block content %}
+<div class="container">
+  <form method="GET">
+    <div class="col is-auto">
+    {{ filter.form.as_p}}
+    <button type="submit" class="btn btn-primary btn btn-small">Filter</button>
+    </div>
+</form>
+{% for filter in filter.qs %}
+  
+{% endfor %}
+
+
+</div>
+
+
+
+
+{%endblock%}

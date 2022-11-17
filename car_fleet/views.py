@@ -5,13 +5,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from .filters import CarFilter
 
-# Create your views here.    
+# Create your views here. 
+def CarView(request):
+    car_filter = Car.objects.all()
+    search_filter = CarFilter(request.GET,queryset=car_filter)
+    return render(request,'pages/index.html',{'filter': search_filter})   
 
 class CarListView(ListView):
     model = Car
-    template_name = 'Cars/index.html'
-    paginate_by = 4 
-     
+    template_name = 'pages/car_listings.html'
+    
        
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
@@ -23,9 +26,7 @@ class CarListView(ListView):
 class CarDetailAccessView(DetailView, LoginRequiredMixin):
     model = Car
     template_name ='Cars/car_detail.html'
-    success_url = 'home'
+    success_url = ''
 
-def CarView(request):
-    car_filter = Car.objects.all()
-    search_filter = CarFilter(request.GET,queryset=car_filter)
-    return render(request,'search/search_list.html',{'filter': search_filter})
+
+
