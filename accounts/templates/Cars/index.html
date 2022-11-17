@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<div class="container is-fullhd">    
+<div class="container is-fluid">    
     <div class="notification">
         <!-- Main container -->
 <nav class="level">
@@ -13,27 +13,10 @@
         <p class="subtitle is-5">
         </p>
       </div>
-      <div class="level-item">
-        <div class="field has-addons">
-          <p class="control">
-            <input class="input" type="text" placeholder="Find a post">
-          </p>
-          <p class="control">
-            <button class="button">
-              Search
-            </button>
-          </p>
-        </div>
-      </div>
     </div>  
     <!-- Right side -->
     <div class="level-right">
-    {% include 'partials/sidebar.html' %} 
-      <p class="level-item"><strong>All</strong></p>
-      <p class="level-item"><a>Published</a></p>
-      <p class="level-item"><a>Drafts</a></p>
-      <p class="level-item"><a>Deleted</a></p>
-      <p class="level-item"><a class="button is-success">New</a></p>
+    {% include 'search/search_list.html' %} 
     </div>
   </nav>
 </div>
@@ -58,7 +41,7 @@
               <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>                                          
             </div>
             <div class="column">
-              <a href="{% url 'car_fleet:car' listings.id %}">
+              <a href="{% url 'car' listings.id %}">
                 <ion-icon name="add-circle-sharp" class="icon is-medium"></ion-icon> 
               </a>                   
             </div>

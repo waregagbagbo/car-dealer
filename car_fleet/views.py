@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404
-from .models import *
+from .models import Car
 from django.views.generic import ListView,DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
-from .filters import CarListingFilter
+from .filters import CarFilter
 
-# Create your views here.
+# Create your views here.    
+
 class CarListView(ListView):
     model = Car
     template_name = 'Cars/index.html'
@@ -23,11 +24,8 @@ class CarDetailAccessView(DetailView, LoginRequiredMixin):
     model = Car
     template_name ='Cars/car_detail.html'
     success_url = 'home'
-   
 
-
-'''def CarViews(request):
-    f = CarListingFilter(request.GET, queryset=Car.objects.all())
-    return render(request, 'category/category_list.html', {'filter':f})'''
-    
-    
+def CarView(request):
+    car_filter = Car.objects.all()
+    search_filter = CarFilter(request.GET,queryset=car_filter)
+    return render(request,'search/search_list.html',{'filter': search_filter})

@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'accounts',
     'car_fleet',
     'bulma',
-    'django_filters',
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [
