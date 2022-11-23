@@ -3,13 +3,13 @@
 {% block content %}
 <section>
     <div class="container-fullhd">
+      <h2>FILTER</h2>
       <div class="columns p-2 mx-2">
-        <div class="column">
-          {% include 'partials/sidebar.html' %}
-        
+        <div class="column"> 
+          {{filter.form.as_p }}       
         </div>
         <div class="column is-10">
-          {% for listings in listing %}
+          {% for listings in filter.qs %}
           <div class="columns is-bordered is-mobile">
             <div class="column">
               <img src="{{listings.car_image.url }}" width="200px" height="150px"  style="border-radius:10px";/>           
