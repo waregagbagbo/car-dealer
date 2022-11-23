@@ -2,7 +2,7 @@
 {% load humanize%}
 {% block content %}
 <section class="section p5"> 
-<a href="{% url 'car_fleet:home' %}"><button class="button is-primary is-outlined is-responsive is-small">Back </button></a>
+<a href="{% url 'car_fleet:cars' %}"><button class="button is-primary is-outlined is-responsive is-small">Back </button></a>
 <h1 class="title">{{object.make}}<br/>{{object.price | intcomma}}</h1>
     <div class="columns is-mobile">
         <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">

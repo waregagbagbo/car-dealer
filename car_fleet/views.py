@@ -20,10 +20,11 @@ class CarListView(LoginRequiredMixin, ListView):
         return context
           
 
-class CarDetailAccessView(DetailView, LoginRequiredMixin):
+class CarDetailAccessView(LoginRequiredMixin, DetailView):
     model = Car
-    template_name ='Cars/car_detail.html'
-    success_url = ''
+    template_name ='pages/car_detail.html'
+    
+  
 
 
 

@@ -1,13 +1,14 @@
 {% extends 'main.html'%}
 {% load humanize %}
 {% block content %}
+{% load bulma_tags%}
 <section>
     <div class="container-fullhd">
       <h2>FILTER</h2>
       <div class="columns p-2 mx-2">
         <form method='get'>
         <div class="column"> 
-          {{filter.form.as_p }} 
+          {{filter.form | bulma }} 
           <button class="btn btn-primary btn-small">Filter</button>
         </form>      
         </div>
@@ -26,7 +27,7 @@
               <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>                                          
             </div>
             <div class="column">
-              <a href="{% url 'car' listings.id %}">
+              <a href="{% url 'car_fleet:car' listings.id %}">
                 <ion-icon name="add-circle-sharp" class="icon is-medium"></ion-icon> 
               </a>                   
             </div>
