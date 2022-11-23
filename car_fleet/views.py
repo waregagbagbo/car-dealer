@@ -5,11 +5,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from .filters import CarFilter
 
-# Create your views here. 
-''''def CarView(request):
-    car_filter = Car.objects.all()
-    search_filter = CarFilter(request.GET,queryset=car_filter)
-    return render(request,'pages/index.html',{'filter': search_filter})'''   
 
 class CarListView(LoginRequiredMixin, ListView):
     model = Car
