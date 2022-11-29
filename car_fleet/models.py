@@ -52,8 +52,7 @@ class Contact(models.Model):
     phone = models.CharField(max_length=255)
     
     def __str__(self):
-        return self.dealer_name
-          
+        return self.dealer_name        
     
     
 
@@ -99,7 +98,8 @@ class Car(models.Model):
     color = models.CharField(max_length=255)
     description = models.ManyToManyField(Description)
     extra =  models.ManyToManyField(CarExtra)
-    slug = models.SlugField(null=True)    
+    slug = models.SlugField(null=True)
+    contact = models.ForeignKey(Contact, null=True, on_delete=models.CASCADE)    
     
     
     class Meta:
