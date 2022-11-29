@@ -5,8 +5,8 @@ from django.urls import reverse
 
 
 CAR_CATEGORY =[
-    ('used_car', 'Used_Car'),
-    ('new_car','New_Car'),      
+    ('1', 'Used_Car'),
+    ('2','New_Car'),      
     
 ]
 
@@ -44,7 +44,7 @@ class CarExtra(models.Model):
     extra_4 = models.CharField(max_length= 30)    
     
     def __str__(self):
-        return self.extra_1 
+        return '%s,%s,%s' % (self.extra_1),(self.extra_2), (self.extra_3),(self.extra_4)
     
 
 class Contact(models.Model):

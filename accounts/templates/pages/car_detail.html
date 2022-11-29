@@ -36,7 +36,11 @@
     <div class="row">
       {% for extras in object.extra.all %}
       <h4>Car Extras</h4>
-      <p>{{extras}}</p>
+      <p>{{extras.extra_1}}
+        {{extras.extra_2}}
+        {{extras.extra_3}}
+        {{extras.extra_4}}
+      </p>
       
       {% endfor%}
       <div class="column">
