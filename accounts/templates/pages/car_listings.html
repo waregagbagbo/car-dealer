@@ -21,8 +21,15 @@
             <div class="column">
               <div class="media-content">
                 <p class="title is-5">{{listings.make}}</p>                
-              </div>           
+              </div>
+              {% for d in listings.description.all %}
+              <p>{{d.desc_1 }}, {{d.desc_2 }}
+              {{d.desc_3 }},{{d.desc_4 }}                
+              </p>              
+              {% endfor %}
+                    
             </div>
+               
             <div class="column">
               <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>                                          
             </div>
@@ -30,7 +37,7 @@
               <a href="{% url 'car_fleet:car' listings.id %}">
                 <ion-icon name="add-circle-sharp" class="icon is-medium"></ion-icon> 
               </a>                   
-            </div>
+            </div>            
           </div>              
           {% endfor %}
 

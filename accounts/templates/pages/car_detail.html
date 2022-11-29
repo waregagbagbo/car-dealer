@@ -6,10 +6,8 @@
 <h1 class="title">{{object.make}}<br/>{{object.price | intcomma}}</h1>
     <div class="columns is-mobile">
         <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
-          <img src ="{{object.car_image.url}}" />
-          
+          <img src ="{{object.car_image.url}}" />         
         </div>
-        <div class="column"></div>
         <div class="column is-half">
           <h3>Car Type: {{object.car_type}}<br/></h3>
           <h3>Make : {{object.make}}<br/></h3>
@@ -22,13 +20,25 @@
           <h3>Gearbox: {{object.gearbox}}<br/></h3>
           <h3>Number of Seats: {{object.number_of_seats}}<br/></h3>
           <h3>Doors: {{object.doors}}<br/></h3>
-          <h3>Color : {{object.color}}<br/></h3>         
-                         
-          </div>    
+          <h3>Color : {{object.color}}<br/></h3>   
+        </div>
+        <div class="column is-auto">
+          <h4>Descriptions</h4>
+          {% for e in object.description.all %}
+           <p>{{e.desc_1}}</p><br/>
+           <p>{{e.desc_2}}</p></br>
+           <p>{{e.desc_3}}</p></br>
+           <p>{{e.desc_4}}</p>      
+          {% endfor%}        
 
         </div>
+    </div>  
+    <div class="row">
+      {% for extras in object.extra.all %}
+      <h4>Car Extras</h4>
+      <p>{{extras}}</p>
       
-      </div>
-    
+      {% endfor%}
+    </div> 
   </section>
 {% endblock content %}
