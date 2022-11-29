@@ -9,7 +9,7 @@
           <img src ="{{object.car_image.url}}" />         
         </div>
         <div class="column is-half">
-          <h3>Car Type: {{object.car_type}}<br/></h3>
+          <h3>Car Type: {{object.car_category}}<br/></h3>
           <h3>Make : {{object.make}}<br/></h3>
           <h3>Price {{object.price}}<br/><h3>
           <h3>Model : {{object.model_type}}<br/></h3>
@@ -39,6 +39,10 @@
       <p>{{extras}}</p>
       
       {% endfor%}
+      <div class="column">
+        <h4>Dealer Contact</h4>
+        {{object.contact}}
+      </div>
     </div> 
   </section>
 {% endblock content %}

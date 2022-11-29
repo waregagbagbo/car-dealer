@@ -83,7 +83,7 @@ class Category(models.Model):
 class Car(models.Model):
     custom_user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     car_image = models.ImageField(upload_to ='motors', default='race.jpg')
-    car_category = models.ForeignKey(Category,on_delete=models.CASCADE)
+    car_category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE)
     make = models.CharField(max_length=255, choices=CAR_MAKES)
     price = models.DecimalField(max_digits=10,decimal_places=2)
     model_type = models.CharField(max_length= 255, choices=CAR_MANUFACTURER)
@@ -98,7 +98,7 @@ class Car(models.Model):
     description = models.ManyToManyField(Description)
     extra =  models.ManyToManyField(CarExtra)
     slug = models.SlugField(null=True)
-    contact = models.ForeignKey(Contact,on_delete=models.CASCADE)    
+    contact = models.ForeignKey(Contact,on_delete=models.CASCADE, null=True)    
     
     
     class Meta:
