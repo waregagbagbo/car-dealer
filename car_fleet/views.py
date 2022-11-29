@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Car
+from .models import *
 from django.views.generic import ListView,DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
@@ -23,6 +23,18 @@ class CarListView(LoginRequiredMixin, ListView):
 class CarDetailAccessView(LoginRequiredMixin, DetailView):
     model = Car
     template_name ='pages/car_detail.html'
+ 
+   
+ 
+       
+  
+       
+    
+  
+
+    
+ 
+    
     
   
 
