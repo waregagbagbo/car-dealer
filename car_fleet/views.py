@@ -10,6 +10,7 @@ class CarListView(LoginRequiredMixin, ListView):
     model = Car
     template_name = 'pages/car_listings.html'
     success_url = 'login'
+    paginate_by = 10
     
        
     def get_context_data(self, **kwargs):
