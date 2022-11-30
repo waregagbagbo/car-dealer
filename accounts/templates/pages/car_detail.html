@@ -8,18 +8,58 @@
       <div class="column is-7 is-mobile">
         <figure class="image">
           <img src ="{{object.car_image.url}}" style="border-radius:8px; heigth:50px; width:100%;" />           
-        </figure>       
+        </figure>     
 
       </div>
       <div class="column is-auto">
         {% include 'search/extras.html' %}
       </div>
-
     </div>
-
   </div>
-
+  <div class="container is-fullhd" style="padding:30px;">
+    <div class="notification is-light">
+      <h3 class="title is-3" style="text-align:center; padding:10px;">Car Specs</h3>
+      <div class="columns">
+      <div class="column is-4">
+        <h4 class="title is-4" style="text-decoration:underline;">Features</h4>
+        <p>Car Type: {{object.car_category}}</p>
+          <p>Make : {{object.make}}</p>
+          <p>Price {{object.price}}</p>
+          <p>Model : {{object.model_type}}</p>
+          <p>Registration Year : {{object.year}}</p>
+          <p>Fuel type: {{object.fuel}}</p>
+          <p>Engine Size: {{object.engine_mode}}</p>
+          <p>Power mode: {{object.power}}</p>
+          <p>Gearbox: {{object.gearbox}}</p>
+          <p>Number of Seats: {{object.number_of_seats}}</p>
+          <p>Doors: {{object.doors}}</p>
+          <p>Color : {{object.color}}</p>         
+      </div>
+      <div class="column is-4">
+        <h5 class="title is-5" style="text-decoration:underline;">Descriptions</h5>
+        {% for e in object.description.all %}
+           <p>{{e.desc_1}}</p>
+           <p>{{e.desc_2}}</p>
+           <p>{{e.desc_3}}</p>
+           <p>{{e.desc_4}}</p>      
+          {% endfor%}
+      </div>
+      <div class="column is-4">
+        <h4 class="title is-5" style="text-decoration:underline;">Car Extras</h4>       
+        {% for extras in object.extra.all %}
+            <p>{{extras.extra_1}}</p>
+            <p>{{extras.extra_2}}</p>
+            <p>{{extras.extra_3}}</p>
+            <p>{{extras.extra_4}}</p>              
+          {% endfor%}
+          <h4 class="title is-5" style="text-decoration:underline;margin-top:80px;">Contact Person</h4>
+          {{object.contact}}     
+          
+      </div>
+    </div>
+  </div>
 </section>
+{% endblock content %}
 <!--<section class="section p5"> 
 <a href="{% url 'car_fleet:cars' %}"><button class="button is-primary is-outlined is-responsive is-small">Back </button></a>
 <h1 class="title">{{object.make}}<br/>{{object.price | intcomma}}</h1>
@@ -68,4 +108,3 @@
       </div>
     </div> 
   </section>-->
-{% endblock content %}
