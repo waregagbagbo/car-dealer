@@ -1,0 +1,59 @@
+<nav class="navbar is-link is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{% url 'car_fleet:cars' %}">
+        <img src="https://www.canva.com/design/DAFTbprebt8/1T5Bh4SiFuR8PAbqkpMgCQ/view?utm_content=DAFTbprebt8&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink" width="112" height="28">
+      </a>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="{% url 'car_fleet:cars' %}">
+          Home
+        </a>
+  
+        <a class="navbar-item">
+          Buy Car
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item">
+              Car Financing
+            </a>
+            <a class="navbar-item">
+              Car Importation
+            </a>
+            <a class="navbar-item">
+              Contact
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+              Report an issue
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="" href="{% url 'register' %}">
+            
+            </a>
+            <a class="" href="{% url 'login_user' %}">
+             
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>

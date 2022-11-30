@@ -1,16 +1,55 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <body> 
+    {% load bulma_tags %}
+    {% include 'search/header2.html' %}   
+    <section class="section is-small">
+      <div class="container is-0-fullhd">
+        <div class="columns">
+          <div class="column is-3">
+            <div class="image" style="background-color:#000;">
+            </div>       
+          
+          </div>
+          <div class="column is-6">
+            <h4 class="title is-3"style="padding:30px;margin-bottom:30px; color:#4522DD; text-align:center">Login</h4>
+            <form method="POST" style="margin-top:30px;">
+              {{form| bulma}}
+              <div class="buttons">
+                <button class="button is-primary">Sign In</button>          
+              </div>              
+            </form>
+            <p style="margin-top:20px;">Don't have an acccount?
+              <a href="{% url 'register' %}"><span style="margin-left:7px;">Register Here<span></a>
+           </p>
+           <p style="margin-top:20px;"> <a href="{% url 'password_reset' %}"><span style="margin-left:-2px;">Reset Password<span></a>
+         </p>           
+                     
+            
+          </div>
+          <div class="column  is-3">            
+            
+          </div>
 
-{%extends 'main.html' %}
-{% load bulma_tags %}
-<h1>Login</h1>
+        </div>
+      </div>
 
-<form action="#" method="post">
-  {% csrf_token %}
-  {{ form|bulma }}
-  <div class="field">
-    <button type="submit" class="button is-primary">Login</button>
-  </div>
-  <input type="hidden" name="next" value="{{ next }}"/>
-  <p>Forgot password?
-    <a href="{% url 'password_reset' %}">Password Reset</p>
-  </p>
-</form>
+    </section>
+  </body>
+</html>
+
+
+
+

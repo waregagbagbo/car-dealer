@@ -13,17 +13,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <body>    
-    <section class="section is-small">
+  <body> 
+    {% include 'search/header2.html' %}   
+    <section class="section is-small" style="padding:50px;margin-top:60px;">
       <div class="container is-0-fullhd">
         <div class="columns">
-          <div class="column is-0-mobile is-6">
+          <div class="column is-6">
             <div class="image" style="background-color:#000;">
 
             </div>       
           
           </div>
-          <div class="column is-0-mobile is-6">
+          <div class="column is-6">
             <form method="POST">
               {{form| bulma}}
               <div class="buttons">
@@ -40,8 +41,6 @@
       </div>
 
     </section>
-
-    <script src="" async defer></script>
     {% include 'partials/footer.html' %}
   </body>
 </html>
