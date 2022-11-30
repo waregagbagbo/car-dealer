@@ -13,7 +13,7 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
+      <a class="navbar-item" href="{% url 'car_fleet:cars' %}">
         Home
       </a>
 
@@ -46,10 +46,10 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-dark" href="{% url 'accounts:register' %}">
+          <a class="button is-dark" href="{% url 'register' %}">
             <strong>Sign up</strong>
           </a>
-          <a class="button is-light" href="{% url 'accounts:login_user' %}">
+          <a class="button is-light" href="{% url 'login_user' %}">
             Log in
           </a>
         </div>

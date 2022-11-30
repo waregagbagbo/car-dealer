@@ -24,6 +24,7 @@ class CarListView(LoginRequiredMixin, ListView):
 class CarDetailAccessView(LoginRequiredMixin, DetailView):
     model = Car
     template_name ='pages/car_detail.html'
+    success_url = 'cars'
  
    
  

@@ -18,10 +18,10 @@
   </div>
   <div class="container is-fullhd" style="padding:30px;">
     <div class="notification is-white">
-      <h3 class="title is-3" style="text-align:center; padding:10px;">Car Specs</h3>
+      <h3 class="title is-3" style="text-align:center; padding:10px;color:#4522DD;">Car Specs</h3>
       <div class="columns">
       <div class="column is-4">
-        <h4 class="title is-4" style="text-decoration:underline;">Features</h4>
+        <h4 class="title is-4" style="text-decoration:underline;color:#DD225C;">Features</h4>
         <p>Car Type: {{object.car_category}}</p>
           <p>Make : {{object.make}}</p>
           <p>Price {{object.price}}</p>
@@ -36,7 +36,7 @@
           <p>Color : {{object.color}}</p>         
       </div>
       <div class="column is-4">
-        <h5 class="title is-5" style="text-decoration:underline;">Descriptions</h5>
+        <h5 class="title is-5" style="text-decoration:underline;color:#DD225C;">Descriptions</h5>
         {% for e in object.description.all %}
            <p>{{e.desc_1}}</p>
            <p>{{e.desc_2}}</p>
@@ -45,7 +45,7 @@
           {% endfor%}
       </div>
       <div class="column is-4">
-        <h4 class="title is-5" style="text-decoration:underline;">Car Extras</h4>       
+        <h4 class="title is-5" style="text-decoration:underline;color:#DD225C;">Car Extras</h4>       
         {% for extras in object.extra.all %}
             <p>{{extras.extra_1}}</p>
             <p>{{extras.extra_2}}</p>
