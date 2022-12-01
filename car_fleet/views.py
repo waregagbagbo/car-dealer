@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
-from django.views.generic import ListView,DetailView
+from django.views.generic import ListView,DetailView,TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from .filters import CarFilter
@@ -26,6 +26,10 @@ class CarDetailAccessView(LoginRequiredMixin, DetailView):
     template_name ='pages/car_detail.html'
     success_url = 'cars'
  
+class LogoutView(TemplateView):
+    template_name = ""
+    success_url = 'login'
+
    
  
        
