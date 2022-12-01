@@ -26,6 +26,7 @@
           </div>
           <div class="column is-6">
             <form method="POST">
+              {% csrf_token %}
               {{form| bulma}}
               <div class="buttons">
                 <button class="button is-primary">Create Account</button>          

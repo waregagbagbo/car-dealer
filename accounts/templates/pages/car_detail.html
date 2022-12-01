@@ -1,5 +1,5 @@
 {% extends 'main.html' %}
-{% load humanize%}
+{% load humanize %}
 {% block content %}
 
 <section class='section is-medium'>
@@ -24,9 +24,9 @@
         <h4 class="title is-4" style="text-decoration:underline;color:#DD225C;">Features</h4>
         <p>Car Type: {{object.car_category}}</p>
           <p>Make : {{object.make}}</p>
-          <p>Price {{object.price}}</p>
+          <p>Price :{{object.price}}</p>
           <p>Model : {{object.model_type}}</p>
-          <p>Registration Year : {{object.year}}</p>
+          <p>Registration Year : {{object.release_year}}</p>
           <p>Fuel type: {{object.fuel}}</p>
           <p>Engine Size: {{object.engine_mode}}</p>
           <p>Power mode: {{object.power}}</p>
@@ -53,7 +53,7 @@
             <p>{{extras.extra_4}}</p>              
           {% endfor%}
           <h4 class="title is-5" style="text-decoration:underline;margin-top:80px;">Contact Person</h4>
-          {{object.contact}}    
+           <p>Contacts:{{object.contact}}</p>   
           
       </div>
     </div>

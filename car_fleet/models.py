@@ -1,6 +1,8 @@
 from django.db import models
 from accounts.models import CustomUser
 from django.urls import reverse
+from phonenumber_field.modelfields import PhoneNumberField
+
 
 
 
@@ -49,10 +51,10 @@ class CarExtra(models.Model):
 
 class Contact(models.Model):
     dealer_name = models.CharField(max_length=30)
-    phone = models.CharField(max_length=255)
+    phone_number = PhoneNumberField()
     
     def __str__(self):
-        return self.dealer_name        
+        return '%s'% (self.dealer_name)        
     
     
 

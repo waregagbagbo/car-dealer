@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'accounts',
     'car_fleet',
     'bulma',
-    'widget_tweaks'
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [

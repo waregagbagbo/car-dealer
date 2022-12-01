@@ -26,7 +26,8 @@
           <div class="column is-6">
             <h4 class="title is-3"style="padding:30px;margin-bottom:30px; color:#4522DD; text-align:center">Login</h4>
             <form method="POST" style="margin-top:30px;">
-              {{form| bulma}}
+              {% csrf_token %}
+              {{form| bulma}}             
               <div class="buttons">
                 <button class="button is-primary">Sign In</button>          
               </div>              
