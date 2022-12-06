@@ -1,3 +1,4 @@
+{% load bulma_tags %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -13,34 +14,27 @@
     <link rel="stylesheet" href="">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <body> 
-    {% load bulma_tags %}
     {% include 'search/header2.html' %}   
-    <section class="section is-small">
+    <section class="section is-small" style="padding:50px;margin-top:60px;">
       <div class="container is-0-fullhd">
         <div class="columns">
-          <div class="column is-3">
+          <div class="column is-6">
             <div class="image" style="background-color:#000;">
+
             </div>       
           
           </div>
           <div class="column is-6">
-            <h4 class="title is-3"style="padding:30px;margin-bottom:30px; color:#4522DD; text-align:center">Login</h4>
-            <form method="POST" style="margin-top:30px;">
+            <form method="POST">
               {% csrf_token %}
-              {{form| bulma}}             
+              {{form| bulma}}
               <div class="buttons">
-                <button class="button is-primary">Sign In</button>          
+                <button class="button is-primary">Create Account</button>          
               </div>              
             </form>
-            <p style="margin-top:20px;">Don't have an acccount?
-              <a href="{% url 'register' %}"><span style="margin-left:7px;">Register Here<span></a>
-           </p>
-           <p style="margin-top:20px;"> <a href="{% url 'password_reset' %}"><span style="margin-left:-2px;">Reset Password<span></a>
-         </p>           
-                     
-            
-          </div>
-          <div class="column  is-3">            
+             <p style="margin-top:20px;">Having an acccount?
+               <a href="{% url 'accounts:login' %}"><span style="margin-left:7px;">Log In<span></a>
+            </p>           
             
           </div>
 
@@ -48,9 +42,6 @@
       </div>
 
     </section>
+    {% include 'partials/footer.html' %}
   </body>
 </html>
-
-
-
-

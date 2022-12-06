@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
+from django.urls import  reverse_lazy
 from .models import *
 from django.views.generic import ListView,DetailView,TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -9,7 +10,7 @@ from .filters import CarFilter
 class CarListView(LoginRequiredMixin, ListView):
     model = Car
     template_name = 'pages/car_listings.html'
-    success_url = 'login'
+    success_url = 'accounts:login'
     paginate_by = 10
     
        
@@ -28,7 +29,7 @@ class CarDetailAccessView(LoginRequiredMixin, DetailView):
  
 class LogoutView(TemplateView):
     template_name = ""
-    success_url = 'login'
+    success_url = reverse_lazy('logout')
 
    
  
