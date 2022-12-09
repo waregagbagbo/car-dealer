@@ -146,5 +146,6 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 AUTHENTICATION_BACKENDS = ['accounts.backends.EmailBackend']
 
 
-#LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = '/cars/'
+
 

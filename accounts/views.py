@@ -9,8 +9,6 @@ from django.http import HttpResponseRedirect
 class UserLoginView(auth_views.LoginView):
     form_class = LoginForm
     template_name = 'acc_pages/login.html'
-    #success_url = reverse_lazy('home')
-    redirect_field_name = reverse_lazy('home')
 
     
     #def form_valid(self,form):

@@ -10,7 +10,6 @@ from .filters import CarFilter
 class CarListView(LoginRequiredMixin,ListView):
     model = Car
     template_name = 'pages/car_listings.html'
-    success_url = 'accounts:login'
     paginate_by = 10
     
        
