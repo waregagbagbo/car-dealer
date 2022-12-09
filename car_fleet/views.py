@@ -27,10 +27,7 @@ class CarDetailAccessView(LoginRequiredMixin, DetailView):
     success_url = 'home'
     
     
- 
-class LogoutView(TemplateView):
-    template_name = ""
-    success_url = reverse_lazy('logout')
+
 
    
  
