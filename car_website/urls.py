@@ -19,9 +19,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('pages', include('accounts.urls')),
-    path('',include('django.contrib.auth.urls')),
-    path('cars',include('car_fleet.urls')),
+    path('',include('car_fleet.urls')),
+    path('', include('accounts.urls')),
+    path('account',include('django.contrib.auth.urls')),
+
     path('admin/', admin.site.urls),
 ]
 if settings.DEBUG:

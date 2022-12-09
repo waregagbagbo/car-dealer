@@ -145,3 +145,6 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 # The code below modifies the register of our custom authentication backend
 AUTHENTICATION_BACKENDS = ['accounts.backends.EmailBackend']
 
+
+#LOGIN_REDIRECT_URL = 'home'
+

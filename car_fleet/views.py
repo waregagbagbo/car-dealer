@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 from .filters import CarFilter
 
 
-class CarListView(LoginRequiredMixin, ListView):
+class CarListView(LoginRequiredMixin,ListView):
     model = Car
     template_name = 'pages/car_listings.html'
     success_url = 'accounts:login'
@@ -25,7 +25,9 @@ class CarListView(LoginRequiredMixin, ListView):
 class CarDetailAccessView(LoginRequiredMixin, DetailView):
     model = Car
     template_name ='pages/car_detail.html'
-    success_url = 'cars'
+    success_url = 'home'
+    
+    
  
 class LogoutView(TemplateView):
     template_name = ""

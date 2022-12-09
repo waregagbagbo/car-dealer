@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.urls import path
-from accounts.views import LoginView, RegistrationView
+from accounts.views import UserLoginView, RegistrationView
 from django.contrib.auth import views as auth_views
 app_name ='accounts'
 
 urlpatterns = [
-    path('', LoginView.as_view(), name='login'),
+    path('', UserLoginView.as_view(), name='login'),
     path('register/', RegistrationView.as_view(), name='register'),   
+      
     
     # authentication urls
      path('password_reset',auth_views.PasswordResetView.as_view(template_name="acc_pages/password_reset_form.html"),\
