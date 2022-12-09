@@ -147,5 +147,5 @@ AUTHENTICATION_BACKENDS = ['accounts.backends.EmailBackend']
 
 
 LOGIN_REDIRECT_URL = '/cars/'
-
+LOGOUT_URL = '/account/sign_out/'
 
