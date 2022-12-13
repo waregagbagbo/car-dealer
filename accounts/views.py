@@ -8,21 +8,22 @@ from django.http import HttpResponseRedirect
 
 class UserLoginView(auth_views.LoginView):
     form_class = LoginForm
-    template_name = 'acc_pages/login.html'
-        
-    #def form_valid(self,form):
-        #remember_me = form.cleaned_data['remember_me']
-        #if not remember_me:
-            #self.request.session.set_expiry(0)
-            #self.request.session.modified = True
-           
+    template_name = 'acc_pages/login.html'      
       
-     
+       
 
 class RegistrationView(CreateView):
     form_class = RegisterForm
     template_name = 'acc_pages/register.html'
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('accounts:login')    
+    
+    def form_valid(self, form):        
+        return super(RegistrationView,self).form_valid(form)
+    
+    
+    
+    
+    
 
 
  

@@ -47,6 +47,10 @@
     </div>
 
     <div class="navbar-end">
+      {% if user.is_authenticated %}
+      <p>Hello,{{request.user.username }}</p>
+
+      {% endif%}
       <div class="navbar-item">
         <div class="buttons">
           <a class="" href="{% url 'accounts:register' %}">
