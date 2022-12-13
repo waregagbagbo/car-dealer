@@ -6,8 +6,7 @@
 <section class="section is-medium">
   <div class="container is-fullhd">
   <div class="columns">
-      <div class="column is-3">
-        <div class="field is-grouped">
+      <div class="column is-2"style="border:1px solid #ddd; border-radius:5px; background-color:#DD225C; margin:4px;height:580px;">       
           <div class="control">
              <form method="GET">
                {% csrf_token %}
@@ -15,35 +14,49 @@
                  <button class="button is-small is-link">Search</button>           
               </form>
             </div>
-        </div>
       </div> 
       {% for listings in filter.qs %}     
-         <div class="column is-multiline .is-narrow-desktop .is-narrow-tablet .is-narrow-touch .is-narrow-widescreen .is-narrow-fullhd"> 
-          <div class="level is-fullhd">
-            <div class="level-item">
-                <figure class="image is-128x128">
-                  <img src="{{listings.car_image.url }}" width="200px" height="150px"  style="border-radius:10px";/>          
-                </figure>
-            </div>
+<div class="column is-multiline .is-narrow-tablet .is-narrow-touch .is-narrow-widescreen .is-narrow-fullhd">
+  <div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src="{{listings.car_image.url }}" style="border-radius:10px";/>       
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-24x24 is-round ">
+            <img src="{{c.avatar.url }}" >           
+          </figure>
         </div>
-        <h5 class="title is-6" style="margin-top:-30px;">{{listings.make}}</h5>
-            <!--{% for d in listings.description.all %}
-                 <p>{{d.desc_1 }}, {{d.desc_2 }}
-                 {{d.desc_3 }},{{d.desc_4 }}                
-                 </p>              
-            {% endfor %}-->
-            <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>
-            <a href="{% url 'car_fleet:car' listings.id %}">
-              <ion-icon name="add-circle-sharp" class="icon is-medium"></ion-icon> 
-            </a>   
-           </div>
-         {% endfor %}
+        <div class="media-content">
+          {% for c in contacts %}
+          <p class="title is-6">{{c}}</p> 
+          {% endfor %}  
         </div>
-    </div> 
-    {% include 'partials/pagination.html'%}   
-
+      </div>  
+      <div class="content">
+        <h5 class="title is-6">{{listings.make}} ~ {{listings.gearbox}}</h5>
+        <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>
+        <hr style="width:50%; position:center;">
+        <p class="subtitle is-6"> {{listings.release_year}} - <span>{{listings.color}}</span></p>           
+      </div>
+      <div class="card">
+        <footer class="card-footer is-small">
+          <a href="{% url 'car_fleet:car' listings.id %}" class="card-footer-item ">View</a>
+          <a href="#" class="card-footer-item">Available</a>
+        </footer>
+      </div>
+    </div>
   </div>
+</div>
+{% endfor %}
+</div>
+</div>
+</div>
 </section>
+{% endblock %}
 
 
 <!--<section class='section is-medium' id='listing-section'>
@@ -92,5 +105,5 @@
     </div>
   </section>-->
 
-  {% endblock %}
+
   

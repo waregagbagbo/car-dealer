@@ -11,9 +11,9 @@ class CarListView(LoginRequiredMixin,ListView):
     model = Car
     template_name = 'pages/car_listings.html'
     
-        
+     # method for pagination   
     def get_paginate_by(self, queryset):
-        self.paginate_by = 10
+        self.paginate_by = 8
         return self.paginate_by
 
 
@@ -33,10 +33,15 @@ class CarDetailAccessView(LoginRequiredMixin, DetailView):
     success_url = 'home'
     
     
+class ContactView(ListView):
+    model = Contact
+    
+    def get_context_data(self, **kwargs):
+        context = super(ContactView,self).get_context_data(**kwargs)
+        context['contacts'] = Contact.objects.all()
+        return context
+     
 
-
-   
- 
        
   
        
