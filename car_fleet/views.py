@@ -42,16 +42,16 @@ class ContactView(ListView):
         context['contacts'] = Contact.objects.all()
         return context
     
-class AddListingView(CreateView):
+class AddListingView(LoginRequiredMixin,CreateView):
     model = Car
     form_class= AddListingForm
     template_name = 'pages/new_listing.html'
     success_url = reverse_lazy('add_car')
     
     def form_valid(self, form):
-        form = super(AddListingView,self).form_valid(form)
+        form = super(AddListingView,self).form_valid(form)        
         return form
-    
+
      
 
        
