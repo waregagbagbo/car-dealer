@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.urls import  reverse_lazy
 from .models import *
-from django.views.generic import ListView,DetailView,TemplateView
+from django.views.generic import ListView,DetailView,TemplateView,CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from .filters import CarFilter
+from .forms import AddListingForm
 
 
 class CarListView(LoginRequiredMixin,ListView):
@@ -40,6 +41,16 @@ class ContactView(ListView):
         context = super(ContactView,self).get_context_data(**kwargs)
         context['contacts'] = Contact.objects.all()
         return context
+    
+class AddListingView(LoginRequiredMixin,CreateView):
+    model = Car
+    form_class= AddListingForm
+    fields = "__all___"
+    
+    def form_valid(self, form):
+        form = super(AddListingView,self).form_valid(form)
+        return form
+    
      
 
        

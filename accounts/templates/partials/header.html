@@ -45,16 +45,14 @@
         </div>
       </div>
     </div>
-
     <div class="navbar-end">
       {% if user.is_authenticated %}
-      <p>Hello,{{request.user.username }}</p>
-
+      <p style="text-align:center;margin-top:20px;">Hello,{{request.user.username }}</p>
       {% endif%}
       <div class="navbar-item">
         <div class="buttons">
-          <a class="" href="{% url 'accounts:register' %}">
-            <strong></strong>
+          <a class="button is-dark is-small" href="{% url 'accounts:register' %}">
+            <strong>Add Listing</strong>
           </a>
           <a class="button is-primary is-small" href="{% url 'accounts:sign_out' %}">
           Logout 
