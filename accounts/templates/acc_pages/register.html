@@ -1,3 +1,4 @@
+{% load static %}
 {% load bulma_tags %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -19,9 +20,9 @@
       <div class="container is-0-fullhd">
         <div class="columns">
           <div class="column is-6">
-            <div class="image" style="background-color:#000;">
-
-            </div>       
+              <figure class="image is-square">
+                <img src="{% static 'logo/register.jpg' %}" style="size:cover; height="500px" width= "700px";border-radius:50px;/>
+              </figure>   
           
           </div>
           <div class="column is-6">
