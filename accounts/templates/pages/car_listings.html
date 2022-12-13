@@ -19,20 +19,19 @@
       </div> 
       {% for listings in filter.qs %}     
          <div class="column is-multiline .is-narrow-desktop .is-narrow-tablet .is-narrow-touch .is-narrow-widescreen .is-narrow-fullhd"> 
-          <div class="level">
+          <div class="level is-fullhd">
             <div class="level-item">
                 <figure class="image is-128x128">
-                  <img src="{{listings.car_image.url }}" width="200px" height="150px"  style="border-radius:10px";/>           
-                   
+                  <img src="{{listings.car_image.url }}" width="200px" height="150px"  style="border-radius:10px";/>          
                 </figure>
             </div>
         </div>
-        <h5 class="title is-5">{{listings.make}}</h5>
-            {% for d in listings.description.all %}
+        <h5 class="title is-6" style="margin-top:-30px;">{{listings.make}}</h5>
+            <!--{% for d in listings.description.all %}
                  <p>{{d.desc_1 }}, {{d.desc_2 }}
                  {{d.desc_3 }},{{d.desc_4 }}                
                  </p>              
-            {% endfor %}
+            {% endfor %}-->
             <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>
             <a href="{% url 'car_fleet:car' listings.id %}">
               <ion-icon name="add-circle-sharp" class="icon is-medium"></ion-icon> 

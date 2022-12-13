@@ -10,7 +10,12 @@ from .filters import CarFilter
 class CarListView(LoginRequiredMixin,ListView):
     model = Car
     template_name = 'pages/car_listings.html'
-    paginate_by = 4
+    
+        
+    def get_paginate_by(self, queryset):
+        self.paginate_by = 10
+        return self.paginate_by
+
 
        
     def get_context_data(self, **kwargs):
@@ -19,6 +24,7 @@ class CarListView(LoginRequiredMixin,ListView):
         #context['listing'] = Car.objects.all()
         context['filter'] = CarFilter(self.request.GET, queryset= self.get_queryset())
         return context
+
           
 
 class CarDetailAccessView(LoginRequiredMixin, DetailView):
