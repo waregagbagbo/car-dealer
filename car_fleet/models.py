@@ -46,7 +46,7 @@ class CarExtra(models.Model):
     extra_4 = models.CharField(max_length= 30)    
     
     def __str__(self):
-        return '%s,%s,%s' % (self.extra_1),(self.extra_2), (self.extra_3),(self.extra_4)
+        return '%s,%s,%s,%s'% (self.extra_1, self.extra_2, self.extra_3, self.extra_4)
     
 
 class Contact(models.Model):
