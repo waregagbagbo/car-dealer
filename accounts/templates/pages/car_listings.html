@@ -4,9 +4,9 @@
 {% load bulma_tags%}
 
 <section class="section is-medium">
-  <div class="container is-fullhd">
-  <div class="columns">
-      <div class="column is-2"style="border:1px solid #ddd; border-radius:5px; background-color:#DD225C; margin:4px;height:580px;">       
+  <div class="container">
+    <div class="columns">
+      <div class="column is-3"style="border:1px solid #ddd; border-radius:5px; background-color:#DD225C; margin:4px;height:580px;">       
           <div class="control">
              <form method="GET">
                {% csrf_token %}
@@ -14,85 +14,37 @@
                  <button class="button is-small is-link">Search</button>           
               </form>
             </div>
-      </div> 
-      {% for listings in filter.qs %}     
-    <div class="column is-multiline .is-narrow-tablet .is-narrow-touch .is-narrow-widescreen .is-narrow-fullhd">
-  <div class="card">
-    <div class="card-image">
-      <figure class="image is-4by3">
-        <img src="{{listings.car_image.url }}" style="border-radius:10px";/>       
-      </figure>
-    </div>
-    <div class="card-content"> 
-      <div class="content" style="margin-top:-20px;">
-        <h5 class="title is-6" style="color:#000;">{{listings.make}} ~ {{listings.gearbox}}</h5>
-        <p class="subtitle is-6" style="color:#DD225C;font-weight:800;">Ksh. {{listings.price | intcomma}}</p>
-        <hr style="width:50%; position:center;">
-        <p class="subtitle is-6"style="color:#000;weight:700;"> {{listings.release_year}} - <span>{{listings.color}}</span></p>           
       </div>
-      <div class="card">
-        <footer class="card-footer is-small">
-          <a href="{% url 'car_fleet:car' listings.id %}" class="card-footer-item ">View</a>
-          <a href="#" class="card-footer-item">Available</a>
-        </footer>
+      <div class="columns is-multiline is-mobile is-fullhd">
+        {% for listings in filter.qs %}
+         <div class="column">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="{{listings.car_image.url }}" style="border-radius:10px";/>       
+              </figure>
+            </div>
+            <div class="card-content"> 
+              <div class="content" style="margin-top:-20px;">
+                <h5 class="title is-6" style="color:#000;">{{listings.make}} ~ {{listings.gearbox}}</h5>
+                <p class="subtitle is-6" style="color:#DD225C;font-weight:800;">Ksh. {{listings.price | intcomma}}</p>
+                <hr style="width:50%; position:center;">
+                <p class="subtitle is-6"style="color:#000;weight:700;"> {{listings.release_year}} - <span>{{listings.color}}</span></p>           
+              </div>
+              <div class="card">
+                <footer class="card-footer is-small">
+                  <a href="{% url 'car_fleet:car' listings.id %}" class="card-footer-item ">View</a>
+                  <a href="#" class="card-footer-item">Available</a>
+                </footer>
+              </div>
+            </div>
+          </div>      
+        </div>     
+         {% endfor %}
       </div>
     </div>
+    {% include 'partials/pagination.html'%}
   </div>
-</div>
-{% endfor %}
-</div>
-{% include 'partials/pagination.html'%}
-</div>
-</div>
 </section>
 {% endblock %}
-
-
-<!--<section class='section is-medium' id='listing-section'>
-  <div class="container-fullhd">
-      <h6 class='title is-4'>Find It Here</h6>
-      <div class="columns">
-      <div class="column is-3" style="border:1px solid #ddd; border-radius:5px; background-color:#DD225C; margin:4px;height:580px;"> 
-        <div class="field is-horizontal">
-          <form method='get'>        
-             {{filter.form | bulma }} 
-             <button class="button is-small is-link">Search</button>
-          </form>  
-        </div>    
-        </div>
-        <div class="column is-9">
-          {% for listings in filter.qs %}
-          <div class="columns is-bordered is-mobile">
-            <div class="column">
-              <img src="{{listings.car_image.url }}" width="200px" height="150px"  style="border-radius:10px";/>           
-            </div>
-            <div class="column">
-              <div class="media-content">
-                <p class="title is-5">{{listings.make}}</p>                
-              </div>
-              {% for d in listings.description.all %}
-              <p>{{d.desc_1 }}, {{d.desc_2 }}
-              {{d.desc_3 }},{{d.desc_4 }}                
-              </p>              
-              {% endfor %}
-                    
-            </div>
-               
-            <div class="column">
-              <p class="subtitle is-6">KES {{listings.price | intcomma}}</p>                                          
-            </div>
-            <div class="column">
-              <a href="{% url 'car_fleet:car' listings.id %}">
-                <ion-icon name="add-circle-sharp" class="icon is-medium"></ion-icon> 
-              </a>                   
-            </div>            
-          </div>              
-          {% endfor %}
-          {% include 'partials/pagination.html'%}
-        </div>               
-      </div> 
-    </div>
-  </section>-->
-
-
-  
+     

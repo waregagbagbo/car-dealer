@@ -14,9 +14,8 @@ class CarListView(LoginRequiredMixin,ListView):
     
      # method for pagination   
     def get_paginate_by(self, queryset):
-        self.paginate_by = 8
+        self.paginate_by = 12
         return self.paginate_by
-
 
        
     def get_context_data(self, **kwargs):
@@ -42,7 +41,11 @@ class ContactView(ListView):
         context['contacts'] = Contact.objects.all()
         return context
     
+    
 class AddListingView(LoginRequiredMixin,CreateView):
+    """ TODO: Add model to query
+    add instances"""
+    
     model = Car
     form_class= AddListingForm
     template_name = 'pages/new_listing.html'
