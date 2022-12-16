@@ -14,8 +14,13 @@
                  <button class="button is-small is-link">Search</button>           
               </form>
             </div>
+          </div>
+          <div class="column is-full">
+            {% include 'partials/hero_section.html'%}
+
+           </div>          
       </div>
-      <div class="columns is-multiline is-mobile is-fullhd">
+      <div class="columns is-multiline is-mobile is-desktop">
         {% for listings in filter.qs %}
          <div class="column">
           <div class="card">
@@ -32,9 +37,9 @@
                 <p class="subtitle is-6"style="color:#000;weight:700;"> {{listings.release_year}} - <span>{{listings.color}}</span></p>           
               </div>
               <div class="card">
-                <footer class="card-footer is-small">
-                  <a href="{% url 'car_fleet:car' listings.id %}" class="card-footer-item ">View</a>
-                  <a href="#" class="card-footer-item">Available</a>
+                <footer class="card-footer" style="height:40px;">
+                  <a href="{% url 'car_fleet:car' listings.id %}" class="card-footer-item "><span id="quote" style="color:#000;font-weight:700; font-size:12px;">More Details</span></a>
+                  <a href="#" class="card-footer-item"><span id="quote" style="color:#000;font-weight:700; font-size:12px;">Get Quote</span></a>
                 </footer>
               </div>
             </div>
@@ -43,7 +48,7 @@
          {% endfor %}
       </div>
     </div>
-    {% include 'partials/pagination.html'%}
+    <p style="position:center; margin-top:30px;padding:30px; align-items:center;">{% include 'partials/pagination.html'%}</p>
   </div>
 </section>
 {% endblock %}

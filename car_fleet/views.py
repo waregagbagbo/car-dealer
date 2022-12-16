@@ -14,7 +14,7 @@ class CarListView(LoginRequiredMixin,ListView):
     
      # method for pagination   
     def get_paginate_by(self, queryset):
-        self.paginate_by = 12
+        self.paginate_by = 8
         return self.paginate_by
 
        

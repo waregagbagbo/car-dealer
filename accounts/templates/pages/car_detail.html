@@ -54,7 +54,13 @@
             <p>{{extras.extra_4}}</p>              
           {% endfor%}
           <h4 class="title is-5" style="text-decoration:underline;margin-top:80px;">Contact Person</h4>
-           <p>Contacts:{{contacts}}</p>   
+           <p>Contact: {{object.contact}}</p> 
+          <p>Phone Number: {{object.contact.phone_number }}</p>
+          <figure class="image is-round ">
+            <img src="{{object.contact.avatar.url }}" style="border-radius:10px; height:100px; width:100px;"/>       
+          </figure>
+          
+
           
       </div>
     </div>
