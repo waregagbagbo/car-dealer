@@ -9,4 +9,5 @@ phonenumbers==8.13.1
 Pillow==9.2.0
 pkg_resources==0.0.0
 pytz==2022.6
+sorl-thumbnail==12.9.0
 sqlparse==0.4.3

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'car_fleet',
     'bulma',
     'phonenumber_field',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [

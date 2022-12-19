@@ -2,10 +2,11 @@ from django.db import models
 from accounts.models import CustomUser
 from django.urls import reverse
 from phonenumber_field.modelfields import PhoneNumberField
+from django.utils.html import format_html
 
 
 
-
+pi
 CAR_CATEGORY =[
     ('1', 'Used_Car'),
     ('2','New_Car'),      
@@ -109,7 +110,11 @@ class Car(models.Model):
         ordering = ["-make"]        
     
     def __str__(self):
-        return str(self.car_category) + ":$" + str(self.price) + "$" + str(self.make) 
+        return str(self.car_category) + ":$" + str(self.price) + "$" + str(self.make)
+    
+    def thumbnail(self):
+        return format_html(f'<img src="{self.car_image.url}" height="50">')    
+    thumbnail.allow_tags = True 
     
     # fetches relative path to the actual object in detailview  
     #def get_absolute_url(self):
