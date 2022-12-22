@@ -11,3 +11,25 @@
     background-attachment: fixed;
     background-size: cover;
 }
+#main-title{
+    margin-top:-190px;
+    color:#ddd;
+    text-align:left !important;
+    margin-right:20px;
+    font-size:35px !important;
+    font-weight:900;
+}
+#main-subtitle{
+    color:#fff;
+    font-size:15px !important;
+    text-transform:capitalize !important;
+
+}
+#major{
+    margin-right:20px;
+}
+#panel{
+    text-align:left !important;
+    position:relative;
+   
+}
