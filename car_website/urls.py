@@ -22,7 +22,7 @@ from car_fleet import views
 
 urlpatterns = [
     path('',include('car_fleet.urls')),
-    path('accounts/', include('accounts.urls')),
+    path('', include('accounts.urls')),
     path('account',include('django.contrib.auth.urls')),
 
     path('admin/', admin.site.urls),
