@@ -9,20 +9,13 @@
     <div class="columns">
       <div class="column is-3" id="hero-part">       
           <div class="control">
-             <form method="GET">
-               {% csrf_token %}
-                {{filter.form | bulma }} 
-                 <button class="button is-small is-link">Search</button>           
-              </form>
-            </div>
-          </div>
-          <div class="column is-full">
             {% include 'partials/hero_section.html'%}
-
-           </div>          
+             
+          </div>
+                  
       </div>
       <div class="columns is-multiline is-mobile is-desktop">
-        {% for listings in filter.qs %}
+        {% for listings in listing %}
          <div class="column">
           <div class="card">
             <div class="card-image">
