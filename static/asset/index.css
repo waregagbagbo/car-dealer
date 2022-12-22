@@ -1,0 +1,13 @@
+#hero-part{
+    border:1px solid #ddd;
+    border-radius:5px;
+    background-color:#DD225C;
+    margin:4px;height:580px;
+}
+.header-image {
+    background-image: url("https://pixabay.com/images/id-1851246/");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}

@@ -1,6 +1,7 @@
 {% extends 'main.html' %}
 {% load humanize %}
 {% block content %}
+{% load thumbnail %}
 
 
 <section class='section is-medium'>
@@ -10,8 +11,10 @@
         <figure class="image">
           <img src ="{{object.car_image.url}}" style="border-radius:8px; heigth:50px; width:100%;" /> 
           <img src="{{ object.image.car_image.url }}" alt="{{ image.alt }}"/>          
-        </figure>     
-
+        </figure> 
+        {% thumbnail item.image "100x100" crop="center" as im %}
+            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+        {% endthumbnail %}
       </div>
       <div class="column is-auto">
         {% include 'search/extras.html' %}

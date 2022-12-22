@@ -1,4 +1,5 @@
 {% extends 'main.html'%}
+{% load static %}
 {% load humanize %}
 {% block content %}
 {% load bulma_tags%}
@@ -6,7 +7,7 @@
 <section class="section is-medium">
   <div class="container">
     <div class="columns">
-      <div class="column is-3"style="border:1px solid #ddd; border-radius:5px; background-color:#DD225C; margin:4px;height:580px;">       
+      <div class="column is-3" id="hero-part">       
           <div class="control">
              <form method="GET">
                {% csrf_token %}
