@@ -15,25 +15,32 @@
           <button class="btn btn-primary">Filter</button>
         </div>      
       </div>
-      {% for listings in listing %}
       <div class="col-sm-9">
-        <div class="card" style="width: 18rem;">
-          <img src="{{listings.car_image.url }}" style="border-radius:10px";/>          
-          <div class="card-body">
-            <h5 class="" style="color:#000;">{{listings.make}} ~ {{listings.gearbox}}</h5>
-            <p class="subtitle is-6" style="color:#DD225C;font-weight:800;">Ksh. {{listings.price | intcomma}}</p>
-            <p class="subtitle is-6"style="color:#000;weight:700;"> {{listings.release_year}} - <span>{{listings.color}}</span></p>  
-            <p class="card-text">{{listings.fuel}}</p>
+        <div class="row">
+          {% for listings in listing %}
+          <div class="col-sm-12 col-md-6 col-lg-3 pb-4">
+            <div class="card h-100" style="border:none">
+              <img src="{{ listings.car_image.url }}" class="card-img-top" alt="{{ listings.make}}">
+                <div class="card-body">
+                  ~ {{listings.gearbox}}
+                <p class="subtitle is-6" style="color:#DD225C;font-weight:800;">Ksh. {{listings.price | intcomma}}</p>
+                  <p class="card-text text-muted" style="font-size:12px">{{listings.release_year }}</p>
+
+                  <div class="card-footer">
+                    <a href="{% url 'car_fleet:car' listings.id %}" class="card-footer-item "><span id="quote" style="color:#000;font-weight:700; font-size:12px;">More Details</span></a>
+                    <a href="#" class="card-footer-item"><span id="quote" style="color:#000;font-weight:700; font-size:12px;">Get Quote</span></a>                  
+                  </div>               
+                </div>                
+            </div>
           </div>
-          <div class="card-footer">
-            <a href="{% url 'car_fleet:car' listings.id %}" class="card-footer-item "><span id="quote" style="color:#000;font-weight:700; font-size:12px;">More Details</span></a>
-            <a href="#" class="card-footer-item"><span id="quote" style="color:#000;font-weight:700; font-size:12px;">Get Quote</span></a>
-          </div>
-        </div>       
-      </div>
-      {% endfor %} 
-      {% include 'partials/pagination.html' %}
-  </div>
+          {% endfor %}
+        </div>        
+        
+      </div> 
+  </div>   
+
+</div>
+  {% include 'partials/pagination.html' %}
 </section>
 {% endblock%}
 
