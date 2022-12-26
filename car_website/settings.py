@@ -125,11 +125,16 @@ USE_TZ = True
 
 
 # suitable for deployment hence does nothing in development
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_URL = 'static/'
 
+if not DEBUG:
+    STATIC_ROOT = '/static'
 
-# for uploading uploaded files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static/'),
+]
+
+#for uploading uploaded files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 
