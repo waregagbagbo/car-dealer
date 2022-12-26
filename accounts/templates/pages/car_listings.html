@@ -1,8 +1,46 @@
 {% extends 'main.html'%}
-{% load static %}
 {% load humanize %}
+{% load crispy_forms_tags%}
 {% block content %}
-{% load crispy-form-tags%}
+
+
+<section class="section is-medium">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="form-row">
+          <form class="form-group" method='get'>
+              {{filter.form | crispy}}
+          </form>
+          <button class="btn btn-primary">Filter</button>
+        </div>       
+      </div>
+      <div class="col-sm-9">
+        {% for listings in listing %}
+        <div class="card" style="width: 18rem;">
+          <img src="{{listings.car_image.url }}" style="border-radius:10px";/>          
+          <div class="card-body">
+            <h5 class="" style="color:#000;">{{listings.make}} ~ {{listings.gearbox}}</h5>
+            <p class="subtitle is-6" style="color:#DD225C;font-weight:800;">Ksh. {{listings.price | intcomma}}</p>
+            <p class="subtitle is-6"style="color:#000;weight:700;"> {{listings.release_year}} - <span>{{listings.color}}</span></p>  
+            <p class="card-text">{{listings.gearbox}}</p>
+          </div>
+          <div class="card-footer">
+            <a href="{% url 'car_fleet:car' listings.id %}" class="card-footer-item "><span id="quote" style="color:#000;font-weight:700; font-size:12px;">More Details</span></a>
+                  <a href="#" class="card-footer-item"><span id="quote" style="color:#000;font-weight:700; font-size:12px;">Get Quote</span></a>
+            
+          </div>
+        </div>
+        
+        
+        {% endfor%}
+        
+      </div>
+  </div>
+</section>
+
+
+{% endblock%}
 
 <!--<section class="section is-medium">
   <div class="container">

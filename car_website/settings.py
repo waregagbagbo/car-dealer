@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'bulma',
     'phonenumber_field',
     'sorl.thumbnail',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -150,5 +151,7 @@ AUTHENTICATION_BACKENDS = ['accounts.backends.EmailBackend']
 
 LOGIN_REDIRECT_URL = '/cars/'
 LOGOUT_URL = '/account/sign_out/'
-REGISTER_URL = ''
+
+TEMPLATE_PACK = 'bootstrap4'
+
 

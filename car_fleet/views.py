@@ -16,19 +16,20 @@ class CarListView(ListView):
     def get_paginate_by(self, queryset):
         self.paginate_by = 8
         return self.paginate_by
-    
-    def get_context_data(self, **kwargs):
-        context = super(CarListView,self).get_context_data(**kwargs)
-        context['listing'] = Car.objects.all()
-        return context
-
-       
+           
     """def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(CarListView, self).get_context_data(**kwargs)
         #context['listing'] = Car.objects.all()
         context['filter'] = CarFilter(self.request.GET, queryset= self.get_queryset())
         return context"""
+    
+    def get_context_data(self, **kwargs):
+        context = super(CarListView,self).get_context_data(**kwargs)
+        context['listing'] = Car.objects.all()
+        return context
+
+
 
           
 
