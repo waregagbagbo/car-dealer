@@ -4,47 +4,7 @@
 {% block content %}
 
 
-<section class="section is-medium">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-3">
-        <div class="form-row">
-          <form class="form-group" method='get'>
-              {{filter.form | crispy}}
-          </form>
-          <button class="btn btn-primary">Filter</button>
-        </div>      
-      </div>
-      <div class="col-sm-9">
-        <div class="row">
-          {% for listings in listing %}
-          <div class="col-sm-12 col-md-6 col-lg-3 pb-4">
-            <div class="card h-100" style="border:none">
-              <img src="{{ listings.car_image.url }}" class="card-img-top" alt="{{ listings.make}}">
-                <div class="card-body">
-                  ~ {{listings.gearbox}}
-                <p class="subtitle is-6" style="color:#DD225C;font-weight:800;">Ksh. {{listings.price | intcomma}}</p>
-                  <p class="card-text text-muted" style="font-size:12px">{{listings.release_year }}</p>
-
-                  <div class="card-footer">
-                    <a href="{% url 'car_fleet:car' listings.id %}" class="card-footer-item "><span id="quote" style="color:#000;font-weight:700; font-size:12px;">More Details</span></a>
-                    <a href="#" class="card-footer-item"><span id="quote" style="color:#000;font-weight:700; font-size:12px;">Get Quote</span></a>                  
-                  </div>               
-                </div>                
-            </div>
-          </div>
-          {% endfor %}
-        </div>        
-        
-      </div> 
-  </div>   
-
-</div>
-  {% include 'partials/pagination.html' %}
-</section>
-{% endblock%}
-
-<!--<section">
+<section class="section is-medium is-narrow-mobile is-narrow-tablet is-narrow-desktop is-narrow-touch">
   <div class="container">
     <div class="columns">
       <div class="column is-3" id="hero-part">       
@@ -69,9 +29,9 @@
                 <p class="subtitle is-6"style="color:#000;weight:700;"> {{listings.release_year}} - <span>{{listings.color}}</span></p>           
               </div>
               <div class="card">
-                <footer class="card-footer" style="height:40px;">
-                  <a href="{% url 'car_fleet:car' listings.id %}" class="card-footer-item "><span id="quote" style="color:#000;font-weight:700; font-size:12px;">More Details</span></a>
-                  <a href="#" class="card-footer-item"><span id="quote" style="color:#000;font-weight:700; font-size:12px;">Get Quote</span></a>
+                <footer class="card-footer" style="height:60px;">
+                  <a href="{% url 'car_fleet:car' listings.id %}" class="card-footer-item "><span id="quote"style="color:#000;font-weight:700;font-size:12px;">More Details</span></a>
+                  <a href="#" class="card-footer-item"><span id="quote" style="color:#000;font-weight:700; font-size:12px;10px;">Get Quote</span></a>
                 </footer>
               </div>
             </div>
@@ -80,8 +40,9 @@
          {% endfor %}
       </div>
     </div>
-    <p style="position:center; margin-top:30px;padding:30px; align-items:center;">{% include 'partials/pagination.html'%}</p>
+    <p style="margin-top:30px;padding:30px;text-align:center;">{% include 'partials/pagination.html'%}</p>
   </div>
 </section>
--->
+{% endblock %}
+
      
