@@ -51,7 +51,7 @@ class CarExtra(models.Model):
 
 class Contact(models.Model):
     dealer= models.CharField(max_length=30)
-    avatar = models.ImageField(upload_to="staticclea/profiles", null=True)
+    avatar = models.ImageField(upload_to="media/profiles", null=True)
     phone_number = PhoneNumberField()
     
     def __str__(self):

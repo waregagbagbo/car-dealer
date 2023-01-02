@@ -5,16 +5,10 @@
 
 
 <section class="section is-medium is-narrow-mobile is-narrow-tablet is-narrow-desktop is-narrow-touch">
-  <div class="container">
-    <div class="columns">
-      <div class="column is-3" id="hero-part">       
-          <div class="control">
-            {% include 'partials/hero_section.html'%}            
-          </div>                  
-      </div>
-      <div class="columns is-multiline is-mobile is-desktop">
+  <div class="container is-fullhd">
+      <div class="columns is-multiline">
         {% for listings in listing %}
-         <div class="column">
+         <div class="column is-narrow">
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">

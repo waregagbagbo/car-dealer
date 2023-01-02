@@ -14,7 +14,7 @@ class CarListView(ListView):
     
      # method for pagination   
     def get_paginate_by(self, queryset):
-        self.paginate_by = 8
+        self.paginate_by = 7
         return self.paginate_by
            
     """def get_context_data(self, **kwargs):
@@ -28,8 +28,6 @@ class CarListView(ListView):
         context = super(CarListView,self).get_context_data(**kwargs)
         context['listing'] = Car.objects.all()
         return context
-
-
 
           
 

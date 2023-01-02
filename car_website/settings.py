@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-le5g5ag^x%2j&t2=5axl^ogqjtzy_ojo*i$q@mkk#mr%3#m0r8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG  = False
+DEBUG  = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -130,8 +130,8 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static/')
 
 
 #for uploading uploaded files
-#MEDIA_URL = '/media/'
-#MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 
 
 
