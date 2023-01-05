@@ -14,7 +14,7 @@ class CarListView(ListView):
     
      # method for pagination   
     def get_paginate_by(self, queryset):
-        self.paginate_by = 7
+        self.paginate_by = 10
         return self.paginate_by
            
     """def get_context_data(self, **kwargs):
@@ -59,7 +59,9 @@ class AddListingView(LoginRequiredMixin,CreateView):
         form = super(AddListingView,self).form_valid(form)        
         return form
 
-     
+
+class SearchFieldView(TemplateView):
+    pass
 
        
   

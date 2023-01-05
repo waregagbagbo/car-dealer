@@ -4,9 +4,18 @@
 {% block content %}
 
 
-<section class="section is-medium is-narrow-mobile is-narrow-tablet is-narrow-desktop is-narrow-touch">
-  <div class="container is-fullhd">
-      <div class="columns is-multiline">
+  <div class="container mt-6 p-5 is-widescreen">
+    <div class ='columns is-mobile is-narrow-mobile'>
+      <div class="column is-3"></div>
+      <div class="column is-6 ">{% include 'partials/panels.html' %}</div>
+      <div class="column is-3"></div>
+
+    </div>
+  </div>
+</section>
+<section class="section is-small is-narrow-mobile is-narrow-tablet is-narrow-desktop is-narrow-touch">
+  <div class="container is-fullhd mb-1">
+      <div class="columns is-multiline is-mobile">
         {% for listings in listing %}
          <div class="column is-narrow">
           <div class="card">
@@ -34,7 +43,7 @@
          {% endfor %}
       </div>
     </div>
-    <p style="margin-top:30px;padding:30px;text-align:center;">{% include 'partials/pagination.html'%}</p>
+    <p style="margin-top:30px;padding:30px;position:center;">{% include 'partials/pagination.html'%}</p>
   </div>
 </section>
 {% endblock %}
