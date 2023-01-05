@@ -61,7 +61,25 @@ class AddListingView(LoginRequiredMixin,CreateView):
 
 
 class SearchFieldView(TemplateView):
-    pass
+    model = Car
+    template_name = 'partials/search_page.html'
+    
+    """let us implement the search query logic
+    use queryset mmethod
+    """ 
+    
+    def get_queryset(self):
+        try:
+            query = self.request.GET.get('q') or ' '
+            if query:
+                object_list = Car.objects.filter()
+                return object_list
+        except:
+            print('Oops! No information-related data')    
+    
+    
+    
+    
 
        
   
