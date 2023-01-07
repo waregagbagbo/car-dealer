@@ -53,9 +53,10 @@ class AddListingView(LoginRequiredMixin,CreateView):
     template_name = 'pages/new_listing.html'
     success_url = reverse_lazy('accounts:login')
     
+    # allow authenticated user to make changes on the form
     def form_valid(self, form):
-        form = super(AddListingView,self).form_valid(form)        
-        return form
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
 
 
 class SearchFieldView(TemplateView):
