@@ -57,9 +57,7 @@ class AddListingView(LoginRequiredMixin,SuccessMessageMixin,CreateView):
     
     # allow authenticated user to make changes on the form
     def form_valid(self, form):
-        form.instance.user = self.request.user
-        self.object = form.save()
-        return super(AddListingView,self).form_valid(form)
+        return super().form_valid(form)
 
 
 class SearchFieldView(TemplateView):

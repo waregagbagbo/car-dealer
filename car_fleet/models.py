@@ -109,7 +109,7 @@ class Car(models.Model):
     
     
     class Meta:
-        ordering = ["-make"]        
+        ordering = ["release_year"]        
     
     def __str__(self):
         return str(self.car_category) + ":$" + str(self.price) + "$" + str(self.make)
