@@ -76,6 +76,9 @@ class Category(models.Model):
     name = models.CharField(max_length=255, choices=CAR_CATEGORY, default='used_car')
     slug = models.SlugField(null=True, unique= True)
     
+    class Meta:
+        verbose_name = 'categorie'
+    
     def __str__(self):
         return self.name  
     

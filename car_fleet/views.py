@@ -7,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from .filters import CarFilter
 from .forms import AddListingForm
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 class CarListView(ListView):
@@ -47,16 +48,18 @@ class ContactView(ListView):
         return context
     
     
-class AddListingView(LoginRequiredMixin,CreateView):
+class AddListingView(LoginRequiredMixin,SuccessMessageMixin,CreateView):
     model = Car
     form_class= AddListingForm
     template_name = 'pages/new_listing.html'
     success_url = reverse_lazy('accounts:login')
+    success_message = "Details saved successfully"
     
     # allow authenticated user to make changes on the form
     def form_valid(self, form):
-        form.instance.created_by = self.request.user
-        return super().form_valid(form)
+        form.instance.user = self.request.user
+        self.object = form.save()
+        return super(AddListingView,self).form_valid(form)
 
 
 class SearchFieldView(TemplateView):
