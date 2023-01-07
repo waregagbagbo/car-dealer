@@ -61,15 +61,12 @@
             </div>
           </div>
         </div>
-        <div class="navbar-end">
-          {% if user.is_authenticated %}
-          <p style="text-align:center;margin-top:15px;">Hello,{{request.user.username }}</p>
-          {% endif%}
+        <div class="navbar-end">         
           <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary is-small" href="{% url 'accounts:sign_out' %}">
-              Add Listing
-              </a>
+            <div class="buttons">           
+                 <a class="button is-primary is-small" href="{% url 'accounts:login' %}">Add Listing
+                 </a>       
+                     
             </div>
           </div> 
         </div>

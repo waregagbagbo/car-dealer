@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponseRedirect
 from django.urls import  reverse_lazy
 from .models import *
+from django.db.models import Q
 from django.views.generic import ListView,DetailView,TemplateView,CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
@@ -47,13 +48,10 @@ class ContactView(ListView):
     
     
 class AddListingView(LoginRequiredMixin,CreateView):
-    """ TODO: Add model to query
-    add instances"""
-    
     model = Car
     form_class= AddListingForm
     template_name = 'pages/new_listing.html'
-    success_url = reverse_lazy('add_car')
+    success_url = reverse_lazy('accounts:login')
     
     def form_valid(self, form):
         form = super(AddListingView,self).form_valid(form)        
@@ -64,20 +62,17 @@ class SearchFieldView(TemplateView):
     model = Car
     template_name = 'partials/search_page.html'
     
-    """let us implement the search query logic
-    use queryset mmethod
-    """ 
-    
+    # search query logic
     def get_queryset(self):
-        try:
-            query = self.request.GET.get('q') or ' '
-            if query:
-                object_list = Car.objects.filter()
-                return object_list
-        except:
-            print('Oops! No information-related data')    
+        query = self.request.GET.get('q')
+        if query:
+            object_list = Car.objects.filter(Q(make__icontains = query) | Q(price__icontains = query) | Q(fuel__icontains = query) \
+                    | Q(price__icontains = query))
+            return object_list
+        else:
+            return HttpResponseRedirect(reverse('home'))     
     
-    
+
     
     
 
